@@ -1,0 +1,59 @@
+{
+  "env": {
+    "jest/globals": true
+  },
+  "extends": [
+    "airbnb-base",
+    "airbnb-typescript",
+    "eslint:recommended",
+    "plugin:security/recommended",
+    "plugin:node/recommended",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "project": ["tsconfig.json"],
+    "sourceType": "module"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jest",
+    "security"
+  ],
+  "rules": {
+    // TypeScript rules
+    "max-len": ["error", { "code": 128 }],
+
+    // Disabled rules
+    // TODO: Resolve the following offs
+    "import/extensions": "off",
+    "node/no-missing-import": "off",
+    "react/jsx-filename-extension": "off",
+    "node/file-extension-in-import": "off",
+    "node/no-unsupported-features/es-syntax": "off",
+
+    // Node.js rules
+    "node/exports-style": ["error", "module.exports"],
+    "node/prefer-global/buffer": ["error", "always"],
+    "node/prefer-global/console": ["error", "always"],
+    "node/prefer-global/process": ["error", "always"],
+    "node/prefer-global/url-search-params": ["error", "always"],
+    "node/prefer-global/url": ["error", "always"],
+    "node/prefer-promises/dns": "error",
+    "node/prefer-promises/fs": "error",
+
+    // Jest rules
+    // Add your Jest-specific rules here
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+        "tryExtensions": [".js", ".json", ".node", ".ts", ".d.ts"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  }
+}
